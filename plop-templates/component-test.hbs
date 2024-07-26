@@ -1,0 +1,18 @@
+import React from "react";
+import { render } from "@testing-library/react";
+import {{pascalCase name}} from "./{{pascalCase name}}";
+import {{pascalCase name}}Props from "./interface";
+
+const defaultProps = {
+  foo: "bar",
+};
+
+const setup = (props: {{pascalCase name}}Props) => render(<{{pascalCase name}} {...props} />);
+
+describe("The {{pascalCase name}} component", () => {
+  it("fails", () => {
+    const { getByText } = setup(defaultProps);
+
+    expect(getByText("foo")).toBeInTheDocument();
+  });
+});

@@ -1,12 +1,10 @@
 import ContentfulImage from "@/lib/contentful-image";
+import AvatarProps from "./interface";
 
 export default function Avatar({
   name,
   picture,
-}: {
-  name: string;
-  picture: any;
-}) {
+}: AvatarProps) {
   return (
     <div className="flex items-center">
       <div className="mr-4 w-12 h-12">

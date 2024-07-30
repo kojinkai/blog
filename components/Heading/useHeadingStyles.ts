@@ -1,3 +1,4 @@
+import { jetBrainsMonoNLBold } from "@/styles/fonts";
 import cx from "classnames";
 import { HEADING_LEVELS } from "./interface";
 
@@ -13,15 +14,21 @@ function useHeadingStyles({
   const displayLevel = displayAs ?? level;
 
   const classExtensions = {
-    [HEADING_LEVELS.h1]: "text-base font-semibold leading-7",
-    [HEADING_LEVELS.h2]: "font-bold text-xl",
-    [HEADING_LEVELS.h3]: "text-base font-semibold leading-6",
-    [HEADING_LEVELS.h4]: "font-bold text-[24px]/[30px]",
-    [HEADING_LEVELS.h5]: "font-bold text-[20px]",
-    [HEADING_LEVELS.h6]: "font-bold text-[18px]/[24px]",
+    [HEADING_LEVELS.h1]: "text-3xl",
+    [HEADING_LEVELS.h2]: "text-2xl",
+    [HEADING_LEVELS.h3]: "text-xl",
+    [HEADING_LEVELS.h4]: "text-xl",
+    [HEADING_LEVELS.h5]: "text-lg",
+    [HEADING_LEVELS.h6]: "text-base",
   };
 
-  const headingClasses = cx(classExtensions[displayLevel], className);
+  const headingClasses = cx(
+    jetBrainsMonoNLBold.className,
+    classExtensions[displayLevel],
+    "text-slate-900",
+    "dark:text-white",
+    className
+  );
 
   return headingClasses;
 }

@@ -3,7 +3,6 @@ import { noop } from "lodash/fp";
 import { vi } from "vitest";
 // import { server } from "./mocks/node";
 
-
 beforeAll(() => {
   // server.listen();
 
@@ -39,10 +38,16 @@ vi.mock("next/navigation", () => ({
   usePathname: () => "http://localhost:3000/en/properties",
 }));
 
-vi.mock("cookies-next", async (/*importOriginal*/) => ({
-  getCookie: vi.fn(),
-  setCookie: vi.fn(),
-  deleteCookie: vi.fn(),
+vi.mock("next/font/local", () => ({
+  default: () => ({
+    src: "foo",
+    className: "foo",
+    style: {
+      fontFamily: "foo",
+      fontWeight: 500,
+      fontStyle: "foo",
+    },
+  }),
 }));
 
 afterEach(() => {

@@ -1,12 +1,9 @@
-import React from "react";
+import dayjs from "dayjs";
 import DateDisplayProps from "./interface";
-import { format } from "date-fns";
+dayjs().format();
 
 export default function DateDisplay({ dateString }: DateDisplayProps) {
   return (
-    <time dateTime={dateString}>
-      {format(new Date(dateString), "LLLL	d, yyyy")}
-    </time>
+    <time dateTime={dateString}>{dayjs(dateString).format("DD/MM/YYYY")}</time>
   );
 }
-

@@ -32,9 +32,7 @@ describe("The Heading component", () => {
       displayAs: Heading.levels.h3,
     });
 
-    expect(getByText("this is an H2").classList.contains("text-base")).toBe(
-      true
-    );
+    expect(getByText("this is an H2").classList.contains("text-xl")).toBe(true);
   });
 
   it("adds any additional classes to the existing display classes", () => {

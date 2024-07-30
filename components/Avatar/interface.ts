@@ -1,6 +1,6 @@
 interface AvatarProps {
-    name: string;
-    picture: any;
-  }
+  name: string;
+  picture: any;
+}
 
 export default AvatarProps;

@@ -1,8 +1,7 @@
-import Link from "next/link";
-import { draftMode } from "next/headers";
-import { Markdown } from "@/lib/markdown";
+import { DateDisplay, Header, Heading } from "@/components";
 import { getAllPosts, getPostAndMorePosts } from "@/lib/api";
-import { DateDisplay, Heading, MoreStories } from "@/components";
+import { Markdown } from "@/lib/markdown";
+import { draftMode } from "next/headers";
 
 export async function generateStaticParams() {
   const allPosts = await getAllPosts(false);
@@ -22,24 +21,17 @@ export default async function PostPage({
 
   return (
     <div className="container mx-auto px-5">
-      <h2 className="mb-20 mt-8 text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter">
-        <Link href="/" className="hover:underline">
-          Loosely Typed
-        </Link>
-        .
-      </h2>
-      <article>
-      <Heading level={Heading.levels.h1} value={post.title} />
+      <Header />
+      <article className="pb-8">
+        <Heading level={Heading.levels.h1} value={post.title} />
         <div className="mb-6 text-lg">
           <DateDisplay dateString={post.date} />
         </div>
 
-        <div className="prose">
+        <div className="max-w-prose leading-7 tracking-wide">
           <Markdown content={post.content} />
         </div>
       </article>
-      <hr className="border-accent-2 my-5" />
-      <MoreStories morePosts={morePosts} />
     </div>
   );
 }

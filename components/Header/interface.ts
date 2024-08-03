@@ -1,5 +1,3 @@
-interface HeaderProps {
-  
-}
+interface HeaderProps {}
 
 export default HeaderProps;

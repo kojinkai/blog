@@ -1,7 +1,7 @@
 import { Post } from "@/models";
 
 interface PostPreviewProps {
-  post: Post
+  post: Post;
 }
 
 export default PostPreviewProps;

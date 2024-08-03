@@ -1,3 +1,5 @@
-interface DateDisplayProps { dateString: string }
+interface DateDisplayProps {
+  dateString: string;
+}
 
 export default DateDisplayProps;

@@ -8,7 +8,10 @@ describe("The Footer component", () => {
     const { getByRole } = setup();
 
     expect(
-      getByRole("heading", { level: 4, name: "Built with you in mind." })
+      getByRole("heading", {
+        level: 4,
+        name: "When we are not sure, we are alive.",
+      })
     ).toBeInTheDocument();
   });
 });

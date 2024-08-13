@@ -1,4 +1,4 @@
-import { jetBrainsMonoNLBold } from "@/styles/fonts";
+import { ibmPlexMono } from "@/styles/fonts";
 import cx from "classnames";
 import { HEADING_LEVELS } from "./interface";
 
@@ -23,7 +23,7 @@ function useHeadingStyles({
   };
 
   const headingClasses = cx(
-    jetBrainsMonoNLBold.className,
+    ibmPlexMono.className,
     classExtensions[displayLevel],
     "text-slate-900",
     "dark:text-white",

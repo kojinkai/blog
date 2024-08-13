@@ -4,21 +4,25 @@ import Header from "./Header";
 const setup = () => render(<Header />);
 
 describe("The Header component", () => {
-  it("Displays a level 1 heading", () => {
+  it("Displays a link to the home page inside the nav", () => {
     const { getByRole } = setup();
 
     expect(
-      getByRole("heading", { level: 1, name: "Loosely Typed ." })
+      within(getByRole("navigation")).getByRole("link", { name: "Home" })
     ).toBeInTheDocument();
   });
 
-  it("Displays a link to the home page inside the heading", () => {
+  it("Displays a link to the about page inside the nav", () => {
     const { getByRole } = setup();
 
     expect(
-      within(getByRole("heading", { level: 1, name: "Loosely Typed ." }))
-        .getByRole("link")
-        .getAttribute("href")
-    ).toBe("/");
+      within(getByRole("navigation")).getByRole("link", { name: "About" })
+    ).toBeInTheDocument();
+  });
+
+  it("Displays the site logo", () => {
+    const { getByRole } = setup();
+
+    expect(getByRole("img")).toBeInTheDocument();
   });
 });

@@ -3,20 +3,37 @@ import { Post } from "@/models";
 const POST_GRAPHQL_FIELDS = `
   slug
   title
-  date
+  author {
+    name
+  }
+  seoFields {
+    pageTitle
+    nofollow
+  }
+  featuredImage {
+    title 
+    width
+    height
+    url
+  }
+  publishedDate
   content {
     json
     links {
       assets {
         block {
+          title
+          description
+          width
+          height
+          url
           sys {
             id
           }
-          url
-          description
         }
       }
     }
+
   }
 `;
 
@@ -39,12 +56,20 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
   ).then((response) => response.json());
 }
 
+function extractLandingPage(fetchResponse: any): any {
+  return fetchResponse?.data?.pageLandingCollection?.items?.[0];
+}
+
+function extractAboutPage(fetchResponse: any): any {
+  return fetchResponse?.data?.pageAboutCollection?.items?.[0];
+}
+
 function extractPost(fetchResponse: any): any {
-  return fetchResponse?.data?.postCollection?.items?.[0];
+  return fetchResponse?.data?.pageBlogPostCollection?.items?.[0];
 }
 
 function extractPostEntries(fetchResponse: any): any[] {
-  return fetchResponse?.data?.postCollection?.items;
+  return fetchResponse?.data?.pageBlogPostCollection?.items;
 }
 
 export async function getPreviewPostBySlug(slug: string | null): Promise<any> {
@@ -64,7 +89,7 @@ export async function getPreviewPostBySlug(slug: string | null): Promise<any> {
 export async function getAllPosts(isDraftMode: boolean): Promise<Post[]> {
   const entries = await fetchGraphQL(
     `query {
-      postCollection(where: { slug_exists: true }, order: date_DESC, preview: ${
+      pageBlogPostCollection(where: { slug_exists: true }, order: title_DESC, preview: ${
         isDraftMode ? "true" : "false"
       }) {
         items {
@@ -74,6 +99,7 @@ export async function getAllPosts(isDraftMode: boolean): Promise<Post[]> {
     }`,
     isDraftMode
   );
+
   return extractPostEntries(entries);
 }
 
@@ -83,7 +109,7 @@ export async function getPostAndMorePosts(
 ): Promise<any> {
   const entry = await fetchGraphQL(
     `query {
-      postCollection(where: { slug: "${slug}" }, preview: ${
+      pageBlogPostCollection(where: { slug: "${slug}" }, preview: ${
         preview ? "true" : "false"
       }, limit: 1) {
         items {
@@ -95,9 +121,9 @@ export async function getPostAndMorePosts(
   );
   const entries = await fetchGraphQL(
     `query {
-      postCollection(where: { slug_not_in: "${slug}" }, order: date_DESC, preview: ${
+      pageBlogPostCollection(where: { slug_not_in: "${slug}" }, preview: ${
         preview ? "true" : "false"
-      }, limit: 2) {
+      }) {
         items {
           ${POST_GRAPHQL_FIELDS}
         }
@@ -109,4 +135,44 @@ export async function getPostAndMorePosts(
     post: extractPost(entry),
     morePosts: extractPostEntries(entries),
   };
+}
+
+export async function getLandingPage(preview: boolean): Promise<any> {
+  const page = await fetchGraphQL(
+    `query {
+      pageLandingCollection(preview: ${preview ? "true" : "false"}, limit: 1) {
+        items {
+          seoFields {
+            pageTitle
+            nofollow
+          }
+            
+          about
+        }
+      }
+    }`,
+    preview
+  );
+
+  return extractLandingPage(page);
+}
+
+export async function getAboutPage(preview: boolean): Promise<any> {
+  const page = await fetchGraphQL(
+    `query {
+       pageAboutCollection(preview: ${preview ? "true" : "false"}, limit: 1) {
+        items {
+          seoFields {
+            pageTitle
+            nofollow
+          }
+            
+          about
+        }
+      }
+    }`,
+    preview
+  );
+
+  return extractAboutPage(page);
 }

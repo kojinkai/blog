@@ -23,30 +23,33 @@ export default async function PostPage({
   return (
     <div className="container mx-auto px-5">
       <Header />
-      <div className="grid grid-cols-5 gap-6 md:gap-12">
-        <div className="col-span-5 max-w-5xl md:col-span-1">
-          <Link href="/" className="prose prose-neutral dark:prose-invert">
+      <div
+        className="
+          flex
+          flex-col
+          gap-8
+          divide-y
+          divide-dashed
+          divide-text-neutral-500
+          dark:divide-neutral-400"
+      >
+        <div className="flex flex-col gap-4">
+          <Link
+            href="/"
+            className="hover:text-lime-500 text-neutral-500 dark:text-neutral-300 underline hover:no-underline"
+          >
             <span>← back to posts</span>
           </Link>
+          <div className="flex flex-col gap-2">
+            <Heading level={Heading.levels.h1} value={post.title} />
+            <DateDisplay dateString={post.publishedDate} />
+          </div>
         </div>
-        <div className="col-span-5 max-w-5xl md:col-span-3">
-          <article className="pb-8">
-            <Heading
-              level={Heading.levels.h1}
-              value={post.title}
-              className="mb-4"
-            />
-
-            <div className="prose prose-neutral lg:prose-xl dark:prose-invert max-w-prose leading-normal tracking-wide">
-              <Markdown content={post.content} />
-            </div>
-          </article>
-        </div>
-        <div className="col-span-5 max-w-5xl md:col-span-1">
-          <aside className="text-base hidden flex-col space-y-2 md:flex prose prose-neutral dark:prose-invert">
-            <DateDisplay dateString={post.date} />
-          </aside>
-        </div>
+        <article className="py-8">
+          <div className="prose prose-neutral lg:prose-xl dark:prose-invert max-w-prose leading-normal tracking-wide">
+            <Markdown content={post.content} />
+          </div>
+        </article>
       </div>
     </div>
   );

@@ -4,6 +4,11 @@ dayjs().format();
 
 export default function DateDisplay({ dateString }: DateDisplayProps) {
   return (
-    <time dateTime={dateString}>{dayjs(dateString).format("DD/MM/YYYY")}</time>
+    <time
+      className="text-neutral-500 dark:text-neutral-400"
+      dateTime={dateString}
+    >
+      {dayjs(dateString).format("DD MMM YYYY")}
+    </time>
   );
 }

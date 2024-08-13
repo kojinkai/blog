@@ -1,4 +1,6 @@
 /* PLOP_INJECT_EXPORT */
+export { default as Code } from "./Code";
+export { default as FeaturedImage } from "./FeaturedImage";
 export { default as Avatar } from "./Avatar";
 export { default as DateDisplay } from "./DateDisplay";
 export { default as Footer } from "./Footer";

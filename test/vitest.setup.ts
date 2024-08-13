@@ -38,8 +38,26 @@ vi.mock("next/navigation", () => ({
   usePathname: () => "http://localhost:3000/en/properties",
 }));
 
-vi.mock("next/font/local", () => ({
+vi.mock("next/font/google", () => ({
   default: () => ({
+    src: "foo",
+    className: "foo",
+    style: {
+      fontFamily: "foo",
+      fontWeight: 500,
+      fontStyle: "foo",
+    },
+  }),
+  IBM_Plex_Sans: () => ({
+    src: "foo",
+    className: "foo",
+    style: {
+      fontFamily: "foo",
+      fontWeight: 500,
+      fontStyle: "foo",
+    },
+  }),
+  IBM_Plex_Mono: () => ({
     src: "foo",
     className: "foo",
     style: {

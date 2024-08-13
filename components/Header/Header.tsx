@@ -3,7 +3,7 @@ import Heading from "../Heading";
 
 export default function Header() {
   return (
-    <section className="pt-4 mb-12">
+    <nav className="pt-4 mb-12">
       <Heading
         level={Heading.levels.h1}
         value={
@@ -15,6 +15,6 @@ export default function Header() {
           </>
         }
       />
-    </section>
+    </nav>
   );
 }

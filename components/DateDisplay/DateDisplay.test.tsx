@@ -12,6 +12,6 @@ describe("The DateDisplay component", () => {
   it("Displays the Date", () => {
     const { getByText } = setup(defaultProps);
 
-    expect(getByText("25/07/2024")).toBeInTheDocument();
+    expect(getByText("25 Jul 2024")).toBeInTheDocument();
   });
 });

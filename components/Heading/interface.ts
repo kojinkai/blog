@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export enum HEADING_LEVELS {
   h1 = "h1",
   h2 = "h2",
@@ -13,7 +15,7 @@ interface HeadingProps extends React.HTMLAttributes<HTMLHeadElement> {
   displayAs?: HEADING_LEVELS;
   id?: string;
   level: HEADING_LEVELS;
-  value: JSX.Element | string;
+  value: ReactNode;
 }
 
 export default HeadingProps;

@@ -1,12 +1,16 @@
 import { Footer } from "@/components";
 import { ibmPlexSans } from "@/fonts";
-import { CMS_NAME } from "@/lib/constants";
 import "@/styles/globals.css";
 import "@/styles/hljs.css";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: `Next.js and ${CMS_NAME} Example`,
-  description: `This is a blog built with Next.js and ${CMS_NAME}.`,
+export const metadata: Metadata = {
+  title: "The Loosley Typed Blog",
+  description: "When we are not sure, we are alive.",
+  openGraph: {
+    title: "The Loosley Typed Blog",
+    description: "When we are not sure, we are alive.",
+  },
 };
 
 export default function RootLayout({

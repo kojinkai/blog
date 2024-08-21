@@ -1,8 +1,13 @@
 import { DateDisplay, Header, Heading } from "@/components";
-import { getAllPosts, getPostAndMorePosts } from "@/lib/api";
+import { getAllPosts, getPostAndMorePosts, getPostSeoFields } from "@/lib/api";
 import { Markdown } from "@/lib/markdown";
+import { Metadata } from "next";
 import { draftMode } from "next/headers";
 import Link from "next/link";
+
+type Props = {
+  params: { slug: string };
+};
 
 export async function generateStaticParams() {
   const allPosts = await getAllPosts(false);
@@ -10,6 +15,19 @@ export async function generateStaticParams() {
   return allPosts.map((post) => ({
     slug: post.slug,
   }));
+}
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { isEnabled } = draftMode();
+  const { seoFields } = await getPostSeoFields(params.slug, isEnabled);
+
+  return {
+    title: seoFields.pageTitle,
+    description: seoFields.pageDescription,
+    openGraph: {
+      title: seoFields.pageTitle,
+      description: seoFields.pageDescription,
+    },
+  };
 }
 
 export default async function PostPage({

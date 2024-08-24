@@ -3,8 +3,6 @@ import { Code, Heading } from "@/components";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import Image from "next/image";
-import Prism from "prismjs";
-import { useEffect } from "react";
 
 interface Asset {
   sys: {
@@ -42,12 +40,6 @@ function RichTextAsset({
 }
 
 export function Markdown({ content }: { content: Content }) {
-  useEffect(() => {
-    // call the highlightAll() function to style our code blocks
-
-    Prism.highlightAll();
-  }, []);
-
   return documentToReactComponents(content.json, {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node: any) => (

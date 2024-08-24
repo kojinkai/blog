@@ -6,10 +6,6 @@ const POST_GRAPHQL_FIELDS = `
   author {
     name
   }
-  seoFields {
-    pageTitle
-    nofollow
-  }
   featuredImage {
     title 
     width
@@ -135,6 +131,29 @@ export async function getPostAndMorePosts(
     post: extractPost(entry),
     morePosts: extractPostEntries(entries),
   };
+}
+
+export async function getPostSeoFields(
+  slug: string,
+  preview: boolean
+): Promise<any> {
+  const seoFields = await fetchGraphQL(
+    `query {
+      pageBlogPostCollection(where: { slug: "${slug}" }, preview: ${
+        preview ? "true" : "false"
+      }, limit: 1) {
+        items {
+          seoFields {
+            pageTitle
+            pageDescription
+          }
+        }
+      }
+    }`,
+    preview
+  );
+
+  return extractPost(seoFields);
 }
 
 export async function getLandingPage(preview: boolean): Promise<any> {

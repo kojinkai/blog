@@ -1,6 +1,16 @@
 import { Header, Heading } from "@/components";
 import { getAboutPage } from "@/lib/api";
+import { Metadata } from "next";
 import { draftMode } from "next/headers";
+
+export const metadata: Metadata = {
+  title: "About The Loosley Typed Blog",
+  description: "Information about the Loosely Typed blog.",
+  openGraph: {
+    title: "The Loosley Typed Blog",
+    description: "Information about the Loosely Typed blog.",
+  },
+};
 
 export default async function Page() {
   const { isEnabled } = draftMode();

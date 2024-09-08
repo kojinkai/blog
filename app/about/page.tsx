@@ -1,5 +1,6 @@
 import { Header, Heading } from "@/components";
 import { getAboutPage } from "@/lib/api";
+import { Markdown } from "@/lib/markdown";
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
 
@@ -22,7 +23,11 @@ export default async function Page() {
       <div className="flex flex-col gap-8 max-w-prose">
         <div className="flex flex-col gap-4">
           <Heading level={Heading.levels.h1} value="About" />
-          <div>{aboutPage.about}</div>
+          <article className="py-8">
+            <div className="prose prose-neutral lg:prose-xl dark:prose-invert max-w-prose leading-normal tracking-wide">
+              <Markdown content={aboutPage.content} />
+            </div>
+          </article>
         </div>
       </div>
     </div>

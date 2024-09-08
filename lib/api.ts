@@ -165,8 +165,9 @@ export async function getLandingPage(preview: boolean): Promise<any> {
             pageTitle
             nofollow
           }
-            
-          about
+          content {
+            json
+          }
         }
       }
     }`,
@@ -184,9 +185,10 @@ export async function getAboutPage(preview: boolean): Promise<any> {
           seoFields {
             pageTitle
             nofollow
+          }  
+          content {
+            json
           }
-            
-          about
         }
       }
     }`,

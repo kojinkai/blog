@@ -9,10 +9,10 @@ export default function Footer() {
         <div className="py-10 flex flex-col lg:flex-row lg:justify-between lg:items-end gap-4">
           <Heading
             level={Heading.levels.h4}
-            value="Well done is better than well said."
+            value="Tell me who your heroes are and I’ll tell you how you’ll turn out to be."
           />
           <div className={cx(ibmPlexMono.className, "text-sm")}>
-            All rights reserved, copyright © 2024.
+            All rights reserved, copyright © 2025.
           </div>
         </div>
       </div>

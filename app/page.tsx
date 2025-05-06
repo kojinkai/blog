@@ -14,7 +14,7 @@ export default async function Page() {
       <Header activeLink={Header.links.HOME} />
       <div className="flex flex-col gap-8 max-w-prose">
         <div className="flex flex-col gap-4">
-          <Heading level={Heading.levels.h1} value="Welcome, Friends!" />
+          <Heading level={Heading.levels.h1} value="Welcome" />
           <article className="py-8">
             <div className="prose prose-neutral lg:prose-xl dark:prose-invert max-w-prose leading-normal tracking-wide">
               <Markdown content={homePage.content} />

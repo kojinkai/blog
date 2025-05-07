@@ -3,6 +3,7 @@ import { Post } from "@/models";
 const POST_GRAPHQL_FIELDS = `
   slug
   title
+  shortDescription
   author {
     name
   }
@@ -84,7 +85,8 @@ export async function getPreviewPostBySlug(slug: string | null): Promise<any> {
 
 export async function getAllPosts(isDraftMode: boolean): Promise<Post[]> {
   const entries = await fetchGraphQL(
-    `query {
+    `
+    query {
       pageBlogPostCollection(where: { slug_exists: true }, order: title_DESC, preview: ${
         isDraftMode ? "true" : "false"
       }) {
@@ -158,7 +160,8 @@ export async function getPostSeoFields(
 
 export async function getLandingPage(preview: boolean): Promise<any> {
   const page = await fetchGraphQL(
-    `query {
+    `
+    query {
       pageLandingCollection(preview: ${preview ? "true" : "false"}, limit: 1) {
         items {
           seoFields {

@@ -2,7 +2,7 @@ export interface Post {
   slug: string;
   title: string;
   publishedDate: string;
-  excerpt: string;
+  shortDescription: string;
   author: {
     name: string;
   };

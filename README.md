@@ -1,5 +1,11 @@
 # A statically generated blog example using Next.js and Contentful
 
+# Use this link to access the GraphIQL APP hosted on contentful to debug your API
+
+```
+  https://graphql.contentful.com/content/v1/spaces/SPACE_ID/explore?access_token=YOUR_CONTENTFUL_ACCESS_TOKEN
+```
+
 This example showcases Next.js's [Static Generation](https://nextjs.org/docs/basic-features/pages) feature using [Contentful](https://www.contentful.com/) as the data source.
 
 ## Demo

@@ -7,6 +7,9 @@ const defaultProps = {
   post: {
     slug: "hey-this-is-a-new-post-by-lewis",
     publishedDate: "2024-07-25",
+    author: {
+      name: "Lewis nixon",
+    },
     title: "Hey this is a new post by lewis",
   } as Post,
 };
@@ -15,11 +18,9 @@ const setup = (props: PostPreviewProps) => render(<PostPreview {...props} />);
 
 describe("The PostPreview component", () => {
   it("Displays the post title", () => {
-    const { getByRole } = setup(defaultProps);
+    const { getByText } = setup(defaultProps);
 
-    expect(
-      getByRole("link", { name: defaultProps.post.title })
-    ).toBeInTheDocument();
+    expect(getByText(defaultProps.post.title)).toBeInTheDocument();
   });
 
   it("Displays the post date", () => {

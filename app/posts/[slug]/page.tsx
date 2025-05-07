@@ -1,4 +1,4 @@
-import { DateDisplay, Header, Heading } from "@/components";
+import { Header, Heading, PostMeta } from "@/components";
 import { getAllPosts, getPostAndMorePosts, getPostSeoFields } from "@/lib/api";
 import { Markdown } from "@/lib/markdown";
 import { Metadata } from "next";
@@ -60,7 +60,7 @@ export default async function PostPage({
           </Link>
           <div className="flex flex-col gap-2">
             <Heading level={Heading.levels.h1} value={post.title} />
-            <DateDisplay dateString={post.publishedDate} />
+            <PostMeta post={post} />
           </div>
         </div>
         <article className="py-8">

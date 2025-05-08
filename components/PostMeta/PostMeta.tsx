@@ -3,7 +3,7 @@ import Heading, { useHeadingStyles } from "../Heading";
 import PostMetaProps from "./interface";
 
 export default function PostMeta({
-  post: { publishedDate, author },
+  post: { publishedDate, author, readingTimeMinutes },
 }: PostMetaProps) {
   const headingStyles = useHeadingStyles({
     level: Heading.levels.h6,
@@ -14,13 +14,14 @@ export default function PostMeta({
       <div className="flex flex-col">
         <p className={headingStyles}>By {author.name}</p>
 
-        <div className="flex items-start gap-2">
-          <time
-            className="text-neutral-500 dark:text-neutral-400 min-w-[100px]"
-            dateTime={publishedDate}
-          >
+        <div className="mt-1 flex items-center gap-x-2 text-neutral-500 dark:text-neutral-400">
+          <time className="min-w-[100px]" dateTime={publishedDate}>
             {dayjs(publishedDate).format("DD MMM YYYY")}
           </time>
+          <svg viewBox="0 0 2 2" className="size-1 fill-current">
+            <circle r={1} cx={1} cy={1} />
+          </svg>
+          <p>{`Reading time ${readingTimeMinutes} mins`}</p>
         </div>
       </div>
     </div>

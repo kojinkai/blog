@@ -5,6 +5,7 @@ export interface Post {
   title: string;
   publishedDate: string;
   shortDescription: string;
+  readingTimeMinutes: number;
   author: {
     name: string;
   };

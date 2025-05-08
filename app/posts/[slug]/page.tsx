@@ -53,10 +53,10 @@ export default async function PostPage({
       >
         <div className="flex flex-col gap-4">
           <Link
-            href="/"
-            className="hover:text-lime-500 text-neutral-500 dark:text-neutral-300 underline hover:no-underline"
+            href="/posts"
+            className="hover:text-lime-500 text-neutral-500 dark:text-neutral-300"
           >
-            <span>← back to posts</span>
+            <span>← Back to Posts</span>
           </Link>
           <div className="flex flex-col gap-2">
             <Heading level={Heading.levels.h1} value={post.title} />

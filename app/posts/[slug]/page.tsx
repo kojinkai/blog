@@ -1,5 +1,5 @@
-import { Header, Heading, PostMeta } from "@/components";
-import { getAllPosts, getPostAndMorePosts, getPostSeoFields } from "@/lib/api";
+import { Header, Heading, PostMeta, PostPreview } from "@/components";
+import { getAllPosts, getPost, getPostSeoFields } from "@/lib/api";
 import { Markdown } from "@/lib/markdown";
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
@@ -36,10 +36,10 @@ export default async function PostPage({
   params: { slug: string };
 }) {
   const { isEnabled } = draftMode();
-  const { post } = await getPostAndMorePosts(params.slug, isEnabled);
+  const post = await getPost(params.slug, isEnabled);
 
   return (
-    <div className="container mx-auto px-5">
+    <div className="container mx-auto px-5 pb-6">
       <Header />
       <div
         className="
@@ -69,6 +69,15 @@ export default async function PostPage({
           </div>
         </article>
       </div>
+      <section className="flex flex-col gap-4">
+        <Heading level={Heading.levels.h2} value="Keep Reading" />
+
+        <div className="grid gap-4 lg:grid-cols-2 lg:gap-6">
+          {post.relatedBlogPostsCollection.items.map((post) => (
+            <PostPreview post={post} key={post.slug} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

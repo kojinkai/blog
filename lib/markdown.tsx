@@ -1,27 +1,9 @@
 "use client";
 import { Code, Heading } from "@/components";
+import { Asset, Content } from "@/models";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import Image from "next/image";
-
-interface Asset {
-  sys: {
-    id: string;
-  };
-  url: string;
-  description: string;
-}
-
-interface AssetLink {
-  block: Asset[];
-}
-
-interface Content {
-  json: any;
-  links: {
-    assets: AssetLink;
-  };
-}
 
 function RichTextAsset({
   id,

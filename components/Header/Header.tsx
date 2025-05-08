@@ -34,6 +34,15 @@ function Header({ activeLink }: HeaderProps) {
           Home
         </Link>
         <Link
+          href="/posts"
+          className={cx("px-4 sm:hover:underline", {
+            "text-lime-500": activeLink === Links.POSTS,
+          })}
+          prefetch
+        >
+          Posts
+        </Link>
+        <Link
           href="/about"
           className={cx("px-4 sm:hover:underline", {
             "text-lime-500": activeLink === Links.ABOUT,

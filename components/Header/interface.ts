@@ -1,6 +1,7 @@
 export enum Links {
   HOME = "home",
   ABOUT = "about",
+  POSTS = "posts",
 }
 
 interface HeaderProps {

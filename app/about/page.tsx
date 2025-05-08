@@ -13,12 +13,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function Page() {
+export default async function AboutPage() {
   const { isEnabled } = draftMode();
   const aboutPage = await getAboutPage(isEnabled);
 
   return (
-    <div className="container mx-auto px-5">
+    <div className="container mx-auto px-5 pb-6">
       <Header activeLink={Header.links.ABOUT} />
       <div className="flex flex-col gap-4">
         <Heading level={Heading.levels.h1} value="About" />

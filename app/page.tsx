@@ -1,12 +1,13 @@
 import { Header, Heading, PostPreview } from "@/components";
-import { getAllPosts, getLandingPage } from "@/lib/api";
+import { getLandingPage, getRecentPosts } from "@/lib/api";
 import { Markdown } from "@/lib/markdown";
 import { ibmPlexMono } from "@/styles/fonts";
 import cx from "classnames";
 import { draftMode } from "next/headers";
-export default async function Page() {
+
+export default async function HomePage() {
   const { isEnabled } = draftMode();
-  const allPosts = await getAllPosts(isEnabled);
+  const latestPosts = await getRecentPosts(isEnabled);
   const homePage = await getLandingPage(isEnabled);
 
   return (
@@ -16,7 +17,7 @@ export default async function Page() {
         <div className="flex flex-col gap-4">
           <Heading level={Heading.levels.h1} value="Welcome" />
           <div>
-            <article>
+            <article className="mb-4">
               <div className="prose prose-neutral lg:prose-xl dark:prose-invert max-w-prose leading-normal tracking-wide">
                 <Markdown content={homePage.content} />
               </div>
@@ -107,11 +108,11 @@ export default async function Page() {
             </div>
           </div>
         </div>
-        <section className="flex flex-col gap-6">
-          <Heading level={Heading.levels.h2} value="Posts" />
+        <section className="flex flex-col gap-4">
+          <Heading level={Heading.levels.h2} value="Recent Posts" />
 
           <div className="grid gap-4 lg:grid-cols-2 lg:gap-6">
-            {allPosts.map((post) => (
+            {latestPosts.map((post) => (
               <PostPreview post={post} key={post.slug} />
             ))}
           </div>

@@ -1,3 +1,5 @@
+import { Content } from "./content";
+
 export interface Post {
   slug: string;
   title: string;
@@ -15,5 +17,9 @@ export interface Post {
   seoFields: {
     pageTitle: string;
     nofollow: boolean;
+  };
+  content: Content;
+  relatedBlogPostsCollection: {
+    items: Post[];
   };
 }

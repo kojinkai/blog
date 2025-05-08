@@ -30,7 +30,20 @@ const POST_GRAPHQL_FIELDS = `
         }
       }
     }
+  }
+`;
 
+const RELATED_POST_FIELDS = `
+  relatedBlogPostsCollection(limit: 2) {
+    items {
+      slug
+      title
+      shortDescription
+      author {
+        name
+      }
+      publishedDate
+    }
   }
 `;
 
@@ -101,10 +114,27 @@ export async function getAllPosts(isDraftMode: boolean): Promise<Post[]> {
   return extractPostEntries(entries);
 }
 
-export async function getPostAndMorePosts(
-  slug: string,
-  preview: boolean
-): Promise<any> {
+export async function getRecentPosts(isDraftMode: boolean): Promise<Post[]> {
+  const entries = await fetchGraphQL(
+    `
+    query {
+      pageBlogPostCollection(
+        where: {slug_exists: true}
+        limit: 4 
+        order: title_DESC,
+        preview: ${isDraftMode ? "true" : "false"}) {
+        items {
+          ${POST_GRAPHQL_FIELDS}
+        }
+      }
+    }`,
+    isDraftMode
+  );
+
+  return extractPostEntries(entries);
+}
+
+export async function getPost(slug: string, preview: boolean): Promise<Post> {
   const entry = await fetchGraphQL(
     `query {
       pageBlogPostCollection(where: { slug: "${slug}" }, preview: ${
@@ -112,6 +142,7 @@ export async function getPostAndMorePosts(
       }, limit: 1) {
         items {
           ${POST_GRAPHQL_FIELDS}
+          ${RELATED_POST_FIELDS}
         }
       }
     }`,
@@ -129,10 +160,7 @@ export async function getPostAndMorePosts(
     }`,
     preview
   );
-  return {
-    post: extractPost(entry),
-    morePosts: extractPostEntries(entries),
-  };
+  return extractPost(entry);
 }
 
 export async function getPostSeoFields(

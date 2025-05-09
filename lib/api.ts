@@ -4,6 +4,7 @@ const POST_GRAPHQL_FIELDS = `
   slug
   title
   shortDescription
+  readingTimeMinutes
   author {
     name
   }

@@ -17,9 +17,9 @@ function useHeadingStyles({
     [HEADING_LEVELS.h1]: "text-3xl",
     [HEADING_LEVELS.h2]: "text-2xl",
     [HEADING_LEVELS.h3]: "text-xl",
-    [HEADING_LEVELS.h4]: "text-xl",
-    [HEADING_LEVELS.h5]: "text-lg",
-    [HEADING_LEVELS.h6]: "text-base",
+    [HEADING_LEVELS.h4]: "text-lg",
+    [HEADING_LEVELS.h5]: "text-base",
+    [HEADING_LEVELS.h6]: "text-sm",
   };
 
   const headingClasses = cx(

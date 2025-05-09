@@ -34,22 +34,46 @@ export function Markdown({ content }: { content: Content }) {
         <div className="mb-4">{children}</div>
       ),
       [BLOCKS.HEADING_1]: (node, children) => (
-        <Heading level={Heading.levels.h1} value={children} />
+        <Heading
+          className="not-prose mb-2 mt-8"
+          level={Heading.levels.h1}
+          value={children}
+        />
       ),
       [BLOCKS.HEADING_2]: (node, children) => (
-        <Heading level={Heading.levels.h2} value={children} />
+        <Heading
+          className="not-prose mb-2 mt-8"
+          level={Heading.levels.h2}
+          value={children}
+        />
       ),
       [BLOCKS.HEADING_3]: (node, children) => (
-        <Heading level={Heading.levels.h3} value={children} />
+        <Heading
+          className="not-prose mb-2 mt-8"
+          level={Heading.levels.h3}
+          value={children}
+        />
       ),
       [BLOCKS.HEADING_4]: (node, children) => (
-        <Heading level={Heading.levels.h4} value={children} />
+        <Heading
+          className="not-prose mb-2 mt-8"
+          level={Heading.levels.h4}
+          value={children}
+        />
       ),
       [BLOCKS.HEADING_5]: (node, children) => (
-        <Heading level={Heading.levels.h5} value={children} />
+        <Heading
+          className="not-prose mb-2 mt-8"
+          level={Heading.levels.h5}
+          value={children}
+        />
       ),
       [BLOCKS.HEADING_6]: (node, children) => (
-        <Heading level={Heading.levels.h6} value={children} />
+        <Heading
+          className="not-prose mb-2 mt-8"
+          level={Heading.levels.h6}
+          value={children}
+        />
       ),
     },
     renderMark: {

@@ -1,4 +1,5 @@
 /* PLOP_INJECT_EXPORT */
+export { default as TextScrambler } from "./TextScrambler";
 export { default as Avatar } from "./Avatar";
 export { default as Code } from "./Code";
 export { default as FeaturedImage } from "./FeaturedImage";

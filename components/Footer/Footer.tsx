@@ -1,17 +1,24 @@
 import { ibmPlexMono } from "@/styles/fonts";
 import cx from "classnames";
-import Heading from "../Heading";
+import TextScrambler from "../TextScrambler";
+
+const inspirationalQuotes: string[] = [
+  "The books you read and the people you meet will shape your future.",
+  "What is now proved was once only imagined.",
+  "Show me your friends, and I'll show you your future.",
+  "Tell me who your heroes are and I’ll tell you how you’ll turn out to be.",
+  "Your daily choices become your destiny.",
+];
 
 export default function Footer() {
   return (
     <footer className="bg-accent-1 border-t dark:border-slate-400 border-slate-700">
       <div className="container mx-auto px-5">
-        <div className="py-10 flex flex-col lg:flex-row lg:justify-between lg:items-end gap-4">
-          <Heading
-            level={Heading.levels.h4}
-            value="Tell me who your heroes are and I’ll tell you how you’ll turn out to be."
-          />
-          <div className={cx(ibmPlexMono.className, "text-sm")}>
+        <div className="py-10 flex flex-col lg:flex-row lg:justify-between lg:items-baseline gap-4">
+          <TextScrambler phrases={inspirationalQuotes} timeout={3000} />
+          <div
+            className={cx(ibmPlexMono.className, "text-sm min-w-80 text-right")}
+          >
             All rights reserved, copyright © 2025.
           </div>
         </div>

@@ -1,5 +1,4 @@
 /* PLOP_INJECT_EXPORT */
-export { default as TextScrambler } from "./TextScrambler";
 export { default as Avatar } from "./Avatar";
 export { default as Code } from "./Code";
 export { default as FeaturedImage } from "./FeaturedImage";
@@ -8,3 +7,5 @@ export { default as Header } from "./Header";
 export { default as Heading, useHeadingStyles } from "./Heading";
 export { default as PostMeta } from "./PostMeta";
 export { default as PostPreview } from "./PostPreview";
+export { default as SocialMediaLinks } from "./SocialMediaLinks";
+export { default as TextScrambler } from "./TextScrambler";

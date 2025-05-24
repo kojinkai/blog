@@ -63,4 +63,34 @@ export default function plopfile(plop) {
       },
     ],
   });
+
+  plop.setGenerator("icon", {
+    description: "General custom Icons in the components folder",
+    prompts: [
+      {
+        type: "input",
+        name: "name",
+        message: "Icon name",
+      },
+    ],
+    actions: [
+      {
+        type: "add",
+        path: "components/Icons/Icon{{pascalCase name}}.tsx",
+        templateFile: "plop-templates/icon.hbs",
+      },
+      {
+        type: "add",
+        path: "components/Icons/Icon{{pascalCase name}}.d.ts",
+        templateFile: "plop-templates/icon-d.hbs",
+      },
+      {
+        type: "append",
+        path: "components/Icons/index.ts",
+        // Pattern tells plop where in the file to inject the template
+        pattern: `/* PLOP_INJECT_EXPORT */`,
+        template: `export { ForwardRef as Icon{{pascalCase name}} } from "./Icon{{pascalCase name}}";`,
+      },
+    ],
+  });
 }

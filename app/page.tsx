@@ -23,7 +23,7 @@ export default async function HomePage() {
             <SocialMediaLinks />
           </div>
         </div>
-        <section className="flex flex-col gap-4">
+        <section className="flex flex-col gap-4 print:hidden">
           <Heading level={Heading.levels.h2} value="Recent Posts" />
 
           <div className="grid gap-4 lg:grid-cols-2 lg:gap-6">

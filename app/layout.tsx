@@ -6,10 +6,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "The Loosley Typed Blog",
-  description: "When we are not sure, we are alive.",
+  description: "Authentically Lewis Nixon.",
   openGraph: {
     title: "The Loosley Typed Blog",
-    description: "When we are not sure, we are alive.",
+    description: "Authentically Lewis Nixon.",
   },
 };
 
@@ -29,8 +29,7 @@ export default function RootLayout({
           dark:text-neutral-300
           divide-y
           divide-dashed
-          divide-text-neutral-500
-          dark:divide-neutral-400
+          divide-neutral-400
         "
       >
         <main className="min-h-[calc(100vh-108px)]">{children}</main>

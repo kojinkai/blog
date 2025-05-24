@@ -5,6 +5,7 @@ export { default as FeaturedImage } from "./FeaturedImage";
 export { default as Footer } from "./Footer";
 export { default as Header } from "./Header";
 export { default as Heading, useHeadingStyles } from "./Heading";
+export * from "./Icons";
 export { default as PostMeta } from "./PostMeta";
 export { default as PostPreview } from "./PostPreview";
 export { default as SocialMediaLinks } from "./SocialMediaLinks";

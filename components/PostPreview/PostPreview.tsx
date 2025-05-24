@@ -13,9 +13,8 @@ export default function PostPreview({ post }: PostPreviewProps) {
       className="
         relative 
         justify-between 
-        border-slate-700
-        dark:border-slate-400 
-        hover:border-slate-300
+        border-neutral-400
+        hover:border-neutral-300
         bg-white 
         dark:bg-neutral-800
         md:rounded-2xl 

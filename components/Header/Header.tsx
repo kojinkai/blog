@@ -7,7 +7,7 @@ import HeaderProps, { Links } from "./interface";
 
 function Header({ activeLink }: HeaderProps) {
   return (
-    <div className="pt-4 mb-12 flex items-end gap-4">
+    <div className="pt-4 mb-12 flex items-end gap-4 print:hidden">
       <Link href="/" className="hover:underline">
         <ContentfulImage
           alt="site logo"
@@ -19,7 +19,7 @@ function Header({ activeLink }: HeaderProps) {
       <nav
         id="navigation-menu"
         className={cx(
-          "flex flex-row items-center divide-x divide-dashed divide-neutral-500 dark:divide-neutral-400 text-neutral-500 dark:text-neutral-400",
+          "flex flex-row items-center divide-x divide-dashed divide-neutral-400 text-neutral-500 dark:text-neutral-400",
           ibmPlexMono.className,
           "text-sm"
         )}
@@ -50,6 +50,15 @@ function Header({ activeLink }: HeaderProps) {
           prefetch
         >
           About
+        </Link>
+        <Link
+          href="/resume"
+          className={cx("px-4 sm:hover:underline", {
+            "text-lime-500": activeLink === Links.RESUME,
+          })}
+          prefetch
+        >
+          Resume
         </Link>
       </nav>
     </div>

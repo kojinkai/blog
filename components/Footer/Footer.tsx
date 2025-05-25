@@ -12,9 +12,9 @@ const inspirationalQuotes: string[] = [
 
 export default function Footer() {
   return (
-    <footer className="bg-accent-1 border-t dark:border-slate-400 border-slate-700">
+    <footer className="bg-accent-1 border-t border-neutral-400 print:hidden">
       <div className="container mx-auto px-5">
-        <div className="py-10 flex flex-col lg:flex-row lg:justify-between lg:items-baseline gap-4">
+        <div className="py-10 flex flex-col items-center text-center lg:text-left lg:flex-row lg:justify-between lg:items-baseline gap-4">
           <TextScrambler phrases={inspirationalQuotes} timeout={3000} />
           <div
             className={cx(ibmPlexMono.className, "text-sm min-w-80 text-right")}

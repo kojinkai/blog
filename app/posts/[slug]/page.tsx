@@ -48,13 +48,12 @@ export default async function PostPage({
           gap-8
           divide-y
           divide-dashed
-          divide-text-neutral-500
-          dark:divide-neutral-400"
+          divide-neutral-400"
       >
         <div className="flex flex-col gap-4">
           <Link
             href="/posts"
-            className="hover:text-lime-500 text-neutral-500 dark:text-neutral-300"
+            className="hover:text-lime-500 text-neutral-500 dark:text-neutral-300 print:hidden"
           >
             <span>← Back to Posts</span>
           </Link>
@@ -69,7 +68,7 @@ export default async function PostPage({
           </div>
         </article>
       </div>
-      <section className="flex flex-col gap-4">
+      <section className="flex flex-col gap-4 print:hidden">
         <Heading level={Heading.levels.h2} value="Keep Reading" />
 
         <div className="grid gap-4 lg:grid-cols-2 lg:gap-6">

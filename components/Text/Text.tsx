@@ -17,8 +17,8 @@ function Text({
 
   const textClasses = cx(
     classExtensions[variant],
-    "text-slate-500",
-    "dark:text-slate-400",
+    "text-neutral-500",
+    "dark:text-neutral-400",
     "max-w-prose",
     className
   );

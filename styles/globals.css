@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media print {
+  /* Print styles for resume screen */
+  /* Remove default browser margins */
+  @page {
+    margin: 0.4in 0.1in;
+    size: A4;
+  }
+
+  /* Ensure body fills the page properly */
+  body {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: white !important;
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  .print-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .print-border {
+    border-left: 4px solid #84cc16 !important;
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  .job-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}

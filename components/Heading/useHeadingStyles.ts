@@ -25,8 +25,6 @@ function useHeadingStyles({
   const headingClasses = cx(
     ibmPlexMono.className,
     classExtensions[displayLevel],
-    "text-slate-900",
-    "dark:text-white",
     className
   );
 

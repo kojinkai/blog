@@ -101,7 +101,7 @@ export async function getAllPosts(isDraftMode: boolean): Promise<Post[]> {
   const entries = await fetchGraphQL(
     `
     query {
-      pageBlogPostCollection(where: { slug_exists: true }, order: title_DESC, preview: ${
+      pageBlogPostCollection(where: { slug_exists: true }, limit: 10, order: publishedDate_DESC, preview: ${
         isDraftMode ? "true" : "false"
       }) {
         items {
@@ -122,7 +122,7 @@ export async function getRecentPosts(isDraftMode: boolean): Promise<Post[]> {
       pageBlogPostCollection(
         where: {slug_exists: true}
         limit: 4 
-        order: title_DESC,
+        order: publishedDate_DESC,
         preview: ${isDraftMode ? "true" : "false"}) {
         items {
           ${POST_GRAPHQL_FIELDS}

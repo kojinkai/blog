@@ -7,8 +7,8 @@ import HeaderProps, { Links } from "./interface";
 
 function Header({ activeLink }: HeaderProps) {
   return (
-    <div className="pt-4 mb-12 flex items-end gap-4 print:hidden">
-      <Link href="/" className="hover:underline">
+    <div className="pt-4 mb-8 sm:mb-12 flex items-end gap-4 print:hidden">
+      <Link href="/" className="hover:underline hidden sm:block">
         <ContentfulImage
           alt="site logo"
           src={logo.src}
@@ -26,7 +26,7 @@ function Header({ activeLink }: HeaderProps) {
       >
         <Link
           href="/"
-          className={cx("px-4 sm:hover:underline", {
+          className={cx("pl-0 sm:pl-4 pr-4 sm:hover:underline", {
             "text-lime-500": activeLink === Links.HOME,
           })}
           prefetch

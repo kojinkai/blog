@@ -14,11 +14,14 @@ export default function PostMeta({
       <div className="flex flex-col">
         <p className={headingStyles}>By {author.name}</p>
 
-        <div className="mt-1 flex items-center gap-x-2 text-neutral-500 dark:text-neutral-400">
+        <div className="mt-1 flex flex-col sm:flex-row sm:items-center sm:gap-x-2 text-neutral-500 dark:text-neutral-400">
           <time className="min-w-[100px]" dateTime={publishedDate}>
             {dayjs(publishedDate).format("DD MMM YYYY")}
           </time>
-          <svg viewBox="0 0 2 2" className="size-1 fill-current">
+          <svg
+            viewBox="0 0 2 2"
+            className="size-1 fill-current hidden sm:block"
+          >
             <circle r={1} cx={1} cy={1} />
           </svg>
           <p>{`Reading time ${readingTimeMinutes} mins`}</p>

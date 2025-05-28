@@ -17,9 +17,12 @@ export default function Footer() {
         <div className="py-10 flex flex-col items-center text-center lg:text-left lg:flex-row lg:justify-between lg:items-baseline gap-4">
           <TextScrambler phrases={inspirationalQuotes} timeout={3000} />
           <div
-            className={cx(ibmPlexMono.className, "text-sm min-w-80 text-right")}
+            className={cx(
+              ibmPlexMono.className,
+              "text-sm lg:min-w-80 text-center lg:text-right"
+            )}
           >
-            All rights reserved, copyright © 2025.
+            All rights reserved, copyright © 2025
           </div>
         </div>
       </div>

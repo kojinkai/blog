@@ -17,6 +17,7 @@ export async function GET(request: Request) {
     return new Response("Invalid slug", { status: 401 });
   }
 
-  draftMode().enable();
+  const { enable } = await draftMode();
+  enable();
   redirect(`/posts/${post.slug}`);
 }

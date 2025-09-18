@@ -4,7 +4,7 @@ import { Markdown } from "@/lib/markdown";
 import { draftMode } from "next/headers";
 
 export default async function HomePage() {
-  const { isEnabled } = draftMode();
+  const { isEnabled } = await draftMode();
   const latestPosts = await getRecentPosts(isEnabled);
   const homePage = await getLandingPage(isEnabled);
 

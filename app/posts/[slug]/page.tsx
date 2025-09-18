@@ -6,7 +6,7 @@ import { draftMode } from "next/headers";
 import Link from "next/link";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
@@ -17,8 +17,9 @@ export async function generateStaticParams() {
   }));
 }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { isEnabled } = draftMode();
-  const { seoFields } = await getPostSeoFields(params.slug, isEnabled);
+  const { isEnabled } = await draftMode();
+  const { slug } = await params;
+  const { seoFields } = await getPostSeoFields(slug, isEnabled);
 
   return {
     title: seoFields.pageTitle,
@@ -30,13 +31,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function PostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const { isEnabled } = draftMode();
-  const post = await getPost(params.slug, isEnabled);
+export default async function PostPage({ params }: Props) {
+  const { isEnabled } = await draftMode();
+  const { slug } = await params;
+  const post = await getPost(slug, isEnabled);
 
   return (
     <div className="container mx-auto px-5 pb-6">

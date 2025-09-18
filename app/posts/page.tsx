@@ -3,7 +3,7 @@ import { getAllPosts } from "@/lib/api";
 import { draftMode } from "next/headers";
 
 export default async function PostsPage() {
-  const { isEnabled } = draftMode();
+  const { isEnabled } = await draftMode();
   const allPosts = await getAllPosts(isEnabled);
 
   return (

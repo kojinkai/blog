@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default async function AboutPage() {
-  const { isEnabled } = draftMode();
+  const { isEnabled } = await draftMode();
   const aboutPage = await getAboutPage(isEnabled);
 
   return (

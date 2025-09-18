@@ -16,7 +16,7 @@
     margin: 0 !important;
     background: white !important;
     -webkit-print-color-adjust: exact !important;
-    color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   .print-section {
@@ -27,7 +27,7 @@
   .print-border {
     border-left: 4px solid #84cc16 !important;
     -webkit-print-color-adjust: exact !important;
-    color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   .job-item {

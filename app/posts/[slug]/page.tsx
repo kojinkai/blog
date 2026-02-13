@@ -66,15 +66,17 @@ export default async function PostPage({ params }: Props) {
           </div>
         </article>
       </div>
-      <section className="flex flex-col gap-4 print:hidden">
-        <Heading level={Heading.levels.h2} value="Keep Reading" />
+      {post.relatedBlogPostsCollection && (
+        <section className="flex flex-col gap-4 print:hidden">
+          <Heading level={Heading.levels.h2} value="Keep Reading" />
 
-        <div className="grid gap-4 lg:grid-cols-2 lg:gap-6">
-          {post.relatedBlogPostsCollection.items.map((post) => (
-            <PostPreview post={post} key={post.slug} />
-          ))}
-        </div>
-      </section>
+          <div className="grid gap-4 lg:grid-cols-2 lg:gap-6">
+            {post.relatedBlogPostsCollection.items.map((post) => (
+              <PostPreview post={post} key={post.slug} />
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

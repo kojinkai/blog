@@ -3,11 +3,11 @@ import cx from "classnames";
 import TextScrambler from "../TextScrambler";
 
 const inspirationalQuotes: string[] = [
-  "The books you read and the people you meet will shape your future.",
+  "I have come here to chew bubblegum and kick ass…",
   "What is now proved was once only imagined.",
   "Show me your friends, and I'll show you your future.",
   "Tell me who your heroes are and I’ll tell you how you’ll turn out to be.",
-  "Your daily choices become your destiny.",
+  "Looking Good, Lewis. Feeling good, Billy-Ray",
 ];
 
 export default function Footer() {
@@ -19,7 +19,7 @@ export default function Footer() {
           <div
             className={cx(
               ibmPlexMono.className,
-              "text-sm lg:min-w-80 text-center lg:text-right"
+              "text-sm lg:min-w-80 text-center lg:text-right",
             )}
           >
             All rights reserved, copyright © 2025

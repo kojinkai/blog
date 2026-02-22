@@ -4,7 +4,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "setup": "node ./lib/setup.js",
     "generate": "plop",
     "test": "vitest"

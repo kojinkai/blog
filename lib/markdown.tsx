@@ -124,7 +124,7 @@ export function Markdown({ content }: { content: Content }) {
     },
     renderMark: {
       [MARKS.CODE]: (text) => (
-        <code className="not-prose px-1 py-0.5 rounded-md bg-neutral-500">
+        <code className="not-prose px-1 py-0.5 rounded-md bg-neutral-300 dark:bg-neutral-500">
           {text}
         </code>
       ),

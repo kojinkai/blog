@@ -11,10 +11,12 @@ export default function PostMeta({
 
   return (
     <div className="flex items-center gap-2">
-      <div className="flex flex-col">
-        <p className={headingStyles}>By {author.name}</p>
+      <div
+        className={`${headingStyles} text-neutral-500 dark:text-neutral-400 flex flex-col`}
+      >
+        <p>By {author.name}</p>
 
-        <div className="mt-1 flex flex-col sm:flex-row sm:items-center sm:gap-x-2 text-neutral-500 dark:text-neutral-400">
+        <div className="mt-1 flex flex-col sm:flex-row sm:items-center sm:gap-x-2">
           <time className="min-w-[100px]" dateTime={publishedDate}>
             {dayjs(publishedDate).format("DD MMM YYYY")}
           </time>

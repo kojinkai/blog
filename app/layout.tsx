@@ -1,7 +1,6 @@
 import { Footer } from "@/components";
 import { ibmPlexSans } from "@/fonts";
 import "@/styles/globals.css";
-import "@/styles/hljs.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

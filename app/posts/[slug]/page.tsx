@@ -1,6 +1,8 @@
 import { Header, Heading, PostMeta, PostPreview } from "@/components";
 import { getAllPosts, getPost, getPostSeoFields } from "@/lib/api";
 import { Markdown } from "@/lib/markdown";
+import { Post } from "@/models";
+import { isEmpty } from "lodash/fp";
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
 import Link from "next/link";
@@ -66,7 +68,7 @@ export default async function PostPage({ params }: Props) {
           </div>
         </article>
       </div>
-      {post.relatedBlogPostsCollection && (
+      {!isEmpty<Post[]>(post.relatedBlogPostsCollection?.items) && (
         <section className="flex flex-col gap-4 print:hidden">
           <Heading level={Heading.levels.h2} value="Keep Reading" />
 

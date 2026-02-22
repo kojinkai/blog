@@ -18,6 +18,21 @@ const POST_GRAPHQL_FIELDS = `
   content {
     json
     links {
+      entries	{
+        block {
+          __typename
+          sys {
+            id
+          }
+          ... on ComponentCodeSnippet {
+            title
+            snippet {
+              json
+            }
+            language
+          }
+        }
+      }
       assets {
         block {
           title
@@ -63,7 +78,7 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
       },
       body: JSON.stringify({ query }),
       next: { tags: ["posts"] },
-    }
+    },
   ).then((response) => response.json());
 }
 
@@ -92,7 +107,7 @@ export async function getPreviewPostBySlug(slug: string | null): Promise<any> {
         }
       }
     }`,
-    true
+    true,
   );
   return extractPost(entry);
 }
@@ -109,7 +124,7 @@ export async function getAllPosts(isDraftMode: boolean): Promise<Post[]> {
         }
       }
     }`,
-    isDraftMode
+    isDraftMode,
   );
 
   return extractPostEntries(entries);
@@ -129,7 +144,7 @@ export async function getRecentPosts(isDraftMode: boolean): Promise<Post[]> {
         }
       }
     }`,
-    isDraftMode
+    isDraftMode,
   );
 
   return extractPostEntries(entries);
@@ -147,7 +162,7 @@ export async function getPost(slug: string, preview: boolean): Promise<Post> {
         }
       }
     }`,
-    preview
+    preview,
   );
   const entries = await fetchGraphQL(
     `query {
@@ -159,14 +174,14 @@ export async function getPost(slug: string, preview: boolean): Promise<Post> {
         }
       }
     }`,
-    preview
+    preview,
   );
   return extractPost(entry);
 }
 
 export async function getPostSeoFields(
   slug: string,
-  preview: boolean
+  preview: boolean,
 ): Promise<any> {
   const seoFields = await fetchGraphQL(
     `query {
@@ -181,7 +196,7 @@ export async function getPostSeoFields(
         }
       }
     }`,
-    preview
+    preview,
   );
 
   return extractPost(seoFields);
@@ -203,7 +218,7 @@ export async function getLandingPage(preview: boolean): Promise<any> {
         }
       }
     }`,
-    preview
+    preview,
   );
 
   return extractLandingPage(page);
@@ -224,7 +239,7 @@ export async function getAboutPage(preview: boolean): Promise<any> {
         }
       }
     }`,
-    preview
+    preview,
   );
 
   return extractAboutPage(page);

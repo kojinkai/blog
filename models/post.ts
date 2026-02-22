@@ -6,6 +6,9 @@ export interface Post {
   publishedDate: string;
   shortDescription: string;
   readingTimeMinutes: number;
+  contentfulMetadata?: {
+    tags: Array<{ id: string; name: string }>;
+  };
   author: {
     name: string;
   };
@@ -15,12 +18,12 @@ export interface Post {
     height: number;
     url: string;
   };
-  seoFields: {
+  seoFields?: {
     pageTitle: string;
     nofollow: boolean;
   };
   content: Content;
-  relatedBlogPostsCollection: {
+  relatedBlogPostsCollection?: {
     items: Post[];
   };
 }

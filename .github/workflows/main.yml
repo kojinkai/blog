@@ -12,14 +12,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: ["24.x"]
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20.6.0
+          node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org/
           cache: "npm"
 

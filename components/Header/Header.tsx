@@ -21,7 +21,7 @@ function Header({ activeLink }: HeaderProps) {
         className={cx(
           "flex flex-row items-center divide-x divide-dashed divide-neutral-400 text-neutral-500 dark:text-neutral-400",
           ibmPlexMono.className,
-          "text-sm"
+          "text-sm",
         )}
       >
         <Link
@@ -50,15 +50,6 @@ function Header({ activeLink }: HeaderProps) {
           prefetch
         >
           About
-        </Link>
-        <Link
-          href="/resume"
-          className={cx("px-4 sm:hover:underline", {
-            "text-lime-500": activeLink === Links.RESUME,
-          })}
-          prefetch
-        >
-          Resume
         </Link>
       </nav>
     </div>

@@ -23,8 +23,8 @@ export default function RootLayout({
       <body
         className="
           bg-white
-          dark:bg-neutral-800
-          text-neutral-500
+          dark:bg-neutral-900
+          text-neutral-600
           dark:text-neutral-300
           divide-y
           divide-dashed

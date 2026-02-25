@@ -21,12 +21,12 @@ export default function Code({ code, language }: CodeProps) {
   }, []);
 
   return (
-    <pre className="not-prose bg-neutral-300 dark:bg-neutral-900 text-sm relative overflow-hidden max-w-full mb-6 rounded-md">
+    <pre className="not-prose bg-neutral-300 dark:bg-neutral-700 text-sm relative overflow-hidden max-w-full mb-6 rounded-md">
       <span
         className={`language-${language.toLowerCase()} mb-0 p-4 block min-h-full overflow-auto`}
       >
         <code>{code}</code>
-        <small className="bg-neutral-900 absolute top-0 right-0 uppercase font-bold text-xs rounded-bl-md px-3 py-1">
+        <small className="bg-neutral-300 dark:bg-neutral-900 absolute top-0 right-0 uppercase font-bold text-xs rounded-bl-md px-3 py-1">
           {language.toUpperCase()}
         </small>
       </span>

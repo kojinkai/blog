@@ -2,6 +2,7 @@ import { Footer } from "@/components";
 import { ibmPlexSans } from "@/fonts";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "The Loosley Typed Blog",
@@ -34,6 +35,7 @@ export default function RootLayout({
         <main className="min-h-[calc(100vh-108px)]">{children}</main>
         <Footer />
       </body>
+      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
     </html>
   );
 }
